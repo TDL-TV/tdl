@@ -2,7 +2,7 @@
   "name": "react-lap",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://TDL-TV/github.io/tdl-tv",
+  "homepage": "http://TDL-TV.github.io/tdl-tv",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
