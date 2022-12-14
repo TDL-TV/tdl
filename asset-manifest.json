@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/http//tdl-tv/github.io/tdl-tv/static/css/main.6e0f7da2.css",
-    "main.js": "/http//tdl-tv/github.io/tdl-tv/static/js/main.d15665ab.js",
-    "static/media/tdllogo.png": "/http//tdl-tv/github.io/tdl-tv/static/media/tdllogo.cf4590a9bc19393b96ec.png",
-    "static/media/SlimJoe.otf": "/http//tdl-tv/github.io/tdl-tv/static/media/SlimJoe.8efa90096864647cc956.otf",
-    "static/media/slick.svg": "/http//tdl-tv/github.io/tdl-tv/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/http//tdl-tv/github.io/tdl-tv/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/http//tdl-tv/github.io/tdl-tv/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/http//tdl-tv/github.io/tdl-tv/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/http//tdl-tv/github.io/tdl-tv/index.html",
-    "main.6e0f7da2.css.map": "/http//tdl-tv/github.io/tdl-tv/static/css/main.6e0f7da2.css.map",
-    "main.d15665ab.js.map": "/http//tdl-tv/github.io/tdl-tv/static/js/main.d15665ab.js.map"
+    "main.css": "/http//TDL-TV/github.io/tdl-tv/static/css/main.8e1c9686.css",
+    "main.js": "/http//TDL-TV/github.io/tdl-tv/static/js/main.32dc5915.js",
+    "static/media/tdllogo.png": "/http//TDL-TV/github.io/tdl-tv/static/media/tdllogo.cf4590a9bc19393b96ec.png",
+    "static/media/SlimJoe.otf": "/http//TDL-TV/github.io/tdl-tv/static/media/SlimJoe.8efa90096864647cc956.otf",
+    "static/media/slick.svg": "/http//TDL-TV/github.io/tdl-tv/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/http//TDL-TV/github.io/tdl-tv/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/http//TDL-TV/github.io/tdl-tv/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/http//TDL-TV/github.io/tdl-tv/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/http//TDL-TV/github.io/tdl-tv/index.html",
+    "main.8e1c9686.css.map": "/http//TDL-TV/github.io/tdl-tv/static/css/main.8e1c9686.css.map",
+    "main.32dc5915.js.map": "/http//TDL-TV/github.io/tdl-tv/static/js/main.32dc5915.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e0f7da2.css",
-    "static/js/main.d15665ab.js"
+    "static/css/main.8e1c9686.css",
+    "static/js/main.32dc5915.js"
   ]
 }
