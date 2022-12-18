@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tdl-tv/static/css/main.71ba8171.css",
-    "main.js": "/tdl-tv/static/js/main.6b6d71e1.js",
+    "main.css": "/tdl-tv/static/css/main.27142fa5.css",
+    "main.js": "/tdl-tv/static/js/main.3708946d.js",
     "static/media/tdllogo.png": "/tdl-tv/static/media/tdllogo.cf4590a9bc19393b96ec.png",
     "static/media/SlimJoe.otf": "/tdl-tv/static/media/SlimJoe.8efa90096864647cc956.otf",
     "static/media/slick.svg": "/tdl-tv/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -9,11 +9,11 @@
     "static/media/slick.ttf": "/tdl-tv/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/tdl-tv/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/tdl-tv/index.html",
-    "main.71ba8171.css.map": "/tdl-tv/static/css/main.71ba8171.css.map",
-    "main.6b6d71e1.js.map": "/tdl-tv/static/js/main.6b6d71e1.js.map"
+    "main.27142fa5.css.map": "/tdl-tv/static/css/main.27142fa5.css.map",
+    "main.3708946d.js.map": "/tdl-tv/static/js/main.3708946d.js.map"
   },
   "entrypoints": [
-    "static/css/main.71ba8171.css",
-    "static/js/main.6b6d71e1.js"
+    "static/css/main.27142fa5.css",
+    "static/js/main.3708946d.js"
   ]
 }
