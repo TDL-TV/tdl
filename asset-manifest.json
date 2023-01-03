@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tdl-tv/static/css/main.3f475a12.css",
-    "main.js": "/tdl-tv/static/js/main.98c8acb3.js",
+    "main.js": "/tdl-tv/static/js/main.13a33bd4.js",
     "static/media/tdllogo.png": "/tdl-tv/static/media/tdllogo.cf4590a9bc19393b96ec.png",
     "static/media/SlimJoe.otf": "/tdl-tv/static/media/SlimJoe.8efa90096864647cc956.otf",
     "static/media/slick.svg": "/tdl-tv/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -10,10 +10,10 @@
     "static/media/slick.woff": "/tdl-tv/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/tdl-tv/index.html",
     "main.3f475a12.css.map": "/tdl-tv/static/css/main.3f475a12.css.map",
-    "main.98c8acb3.js.map": "/tdl-tv/static/js/main.98c8acb3.js.map"
+    "main.13a33bd4.js.map": "/tdl-tv/static/js/main.13a33bd4.js.map"
   },
   "entrypoints": [
     "static/css/main.3f475a12.css",
-    "static/js/main.98c8acb3.js"
+    "static/js/main.13a33bd4.js"
   ]
 }
