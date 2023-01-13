@@ -95,8 +95,8 @@ const Home = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     infinite: true,
-    // autoplay: true,
-    autoplaySpeed: 5000,
+    autoplay: true,
+    autoplaySpeed: 2500,
     cssEase: "linear",
     responsive: [
       {
