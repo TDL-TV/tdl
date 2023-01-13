@@ -4,22 +4,31 @@ import { db } from "../../firebase/firebaseConfig";
 import { useParams, Link } from "react-router-dom";
 import "../../assets/css/Current.css";
 import parse from "html-react-parser";
+import { useLoadingContext } from "react-router-loading";
 
 const VideoContent = () => {
-  let { title, category } = useParams();
+  let { id, category } = useParams();
 
+  const loadingContext = useLoadingContext();
   const [allPostVideos, setAllPostVideo] = useState([]);
 
   const videoCollectionRef = collection(db, "posts");
+  const [userName, setUserName] = useState("");
 
   const allVideos = query(videoCollectionRef);
 
+  
+
   useEffect(() => {
+
+
+    loadingContext.start();
     const getAllPosts = async () => {
       const postData = await getDocs(allVideos);
       setAllPostVideo(
         postData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      loadingContext.done();
     };
 
     getAllPosts();
@@ -30,8 +39,10 @@ const VideoContent = () => {
       <div className="current_box">
         {allPostVideos
           .filter((data) => data.type === "video")
-          .filter((data) => data.title === title)
+          .filter((data) => data.id === id)
           .map((post) => {
+            // (setUserName(post.title));
+            document.title = (post.username+" - "+post.title)
             return (
               <>
                 <div className="content_div">
@@ -45,6 +56,7 @@ const VideoContent = () => {
                         <p>{post.username}</p>
                       </Link>
                       <p>{post.date}</p>
+                      <p>{post.category}</p>
                     </div>
 
                     <h4>Description</h4>
@@ -64,33 +76,54 @@ const VideoContent = () => {
           <div className="related_box">
             {allPostVideos
               .filter((data) => data.category === category)
-              .filter((data) => data.title !== title)
+              .filter((data) => data.id !== id)
               .map((post) => {
                 return (
                   <>
                     <Link
-                      to={
-                        "/" + post.type + "/" + post.category + "/" + post.title
-                      }
+                      to={"/" + post.type + "/" + post.category + "/" + post.id}
                     >
                       <div className="related_div">
                         <div className="related_img">
                           <img src={post.image} alt={post.title} />
                         </div>
                         <div className="related_description">
-                          <p>{post.category}</p>
                           <h4>{post.title}</h4>
+                          <i>{post.username + " - " + post.type}</i>
                           <div className="date">
-                            <p>{post.username}</p>
                             <p>{post.date}</p>
                           </div>
-                          <i>{post.type}</i>
                         </div>
                       </div>
                     </Link>
                   </>
                 );
               })}
+
+            {/* {allPostVideos
+              .filter((data) => data.username === userName)
+              .map((post) => {
+                return (
+                  <>
+                    <Link
+                      to={"/" + post.type + "/" + post.category + "/" + post.id}
+                    >
+                      <div className="related_div">
+                        <div className="related_img">
+                          <img src={post.image} alt={post.title} />
+                        </div>
+                        <div className="related_description">
+                          <h4>{post.title}</h4>
+                          <i>{post.username + " - " + post.type}</i>
+                          <div className="date">
+                            <p>{post.date}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </>
+                );
+              })} */}
           </div>
         </div>
       </div>

@@ -9,8 +9,6 @@ import {
   RiCloseLine,
   RiSearch2Line,
   RiSearchLine,
-  RiApps2Line,
-  RiAppsLine,
 } from "react-icons/ri";
 import Sidebar from "./Sidebar";
 import Themebtn from "./Themebtn";
@@ -33,6 +31,10 @@ const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const [toggleSearch, setToggleSearch] = useState(false);
+
+  // document.body.onClick(() => {
+  //   setSearchInput(" ")
+  // })
 
   function homeClicked() {
     setPhotos(false);
@@ -104,16 +106,6 @@ const Navbar = () => {
     ],
   };
 
-  const photoCategories = [
-    "News & Events",
-    "Sports",
-    "Clubs & Societies",
-    "Arts & Lifestyle",
-    "Product",
-    "Nature",
-    "Potrait",
-  ];
-
   const [categories, setCategories] = useState([]);
 
   const [allPosts, setAllPosts] = useState([]);
@@ -159,29 +151,50 @@ const Navbar = () => {
 
         {sidebar ? (
           <>
-            <div className="menu_icon">
-              <RiCloseLine
-                size={30}
-                onClick={() => {
-                  setSidebar(false);
-                }}
-              />
-            </div>
+            <div
+              className="sidenav_modal"
+              onClick={() => {
+                setSidebar(false);
+              }}
+            ></div>
 
             <div className="side_bar">
+              <div className="menu_icon">
+                <RiCloseLine
+                  className="close_sidenav"
+                  size={32}
+                  onClick={() => {
+                    setSidebar(false);
+                  }}
+                />
+              </div>
               <div className="side_container">
                 <Themebtn text="Change theme" />
                 {home ? (
                   <>
                     <div className="active_link">
                       <li>
-                        <Link to="/">Home</Link>
+                        <Link
+                          onClick={() => {
+                            setSidebar(false);
+                          }}
+                          to="/"
+                        >
+                          Home
+                        </Link>
                       </li>
                     </div>
                   </>
                 ) : (
                   <li onClick={homeClicked}>
-                    <Link to="/">Home</Link>
+                    <Link
+                      onClick={() => {
+                        setSidebar(false);
+                      }}
+                      to="/"
+                    >
+                      Home
+                    </Link>
                   </li>
                 )}
 
@@ -191,13 +204,27 @@ const Navbar = () => {
                   <>
                     <div className="active_link">
                       <li>
-                        <Link to="/photo">Photos</Link>
+                        <Link
+                          onClick={() => {
+                            setSidebar(false);
+                          }}
+                          to="/photo"
+                        >
+                          Photos
+                        </Link>
                       </li>
                     </div>
                   </>
                 ) : (
                   <li onClick={photosClicked}>
-                    <Link to="/photo">Photos</Link>
+                    <Link
+                      onClick={() => {
+                        setSidebar(false);
+                      }}
+                      to="/photo"
+                    >
+                      Photos
+                    </Link>
                   </li>
                 )}
 
@@ -206,13 +233,27 @@ const Navbar = () => {
                   <>
                     <div className="active_link">
                       <li>
-                        <Link to="/video">Videos</Link>
+                        <Link
+                          onClick={() => {
+                            setSidebar(false);
+                          }}
+                          to="/video"
+                        >
+                          Videos
+                        </Link>
                       </li>
                     </div>
                   </>
                 ) : (
                   <li onClick={videosClicked}>
-                    <Link to="/video">Videos</Link>
+                    <Link
+                      onClick={() => {
+                        setSidebar(false);
+                      }}
+                      to="/video"
+                    >
+                      Videos
+                    </Link>
                   </li>
                 )}
 
@@ -221,16 +262,34 @@ const Navbar = () => {
                   <>
                     <div className="active_link">
                       <li>
-                        <Link to="/articles and blog">Articles & Blog</Link>
+                        <Link
+                          onClick={() => {
+                            setSidebar(false);
+                          }}
+                          to="/articles and blog"
+                        >
+                          Articles & Blog
+                        </Link>
                       </li>
                     </div>
                   </>
                 ) : (
                   <li onClick={articlesClicked}>
-                    <Link to="/articles and blog">Articles & Blog</Link>
+                    <Link
+                      onClick={() => {
+                        setSidebar(false);
+                      }}
+                      to="/articles and blog"
+                    >
+                      Artficles & Blog
+                    </Link>
                   </li>
                 )}
-                <Sidebar />
+                <Sidebar
+                  onClick={() => {
+                    setSidebar(false);
+                  }}
+                />
               </div>
             </div>
           </>
@@ -247,8 +306,12 @@ const Navbar = () => {
           </>
         )}
 
+        {/* Main Navigation */}
+
         <div className="logo">
-          <img src={Tdllogo} />
+          <Link to="/">
+            <img src={Tdllogo} />
+          </Link>
         </div>
 
         <form
@@ -340,6 +403,8 @@ const Navbar = () => {
         </label> */}
 
         {/* <input type="checkbox" id="show_nav" /> */}
+
+        {/* Right Navigation Menu */}
         <div className="right_nav">
           {home ? (
             <>
@@ -351,13 +416,28 @@ const Navbar = () => {
 
               <div className="nav_list">
                 <Slider {...settings}>
-                  {categories.map((category) => {
-                    return (
-                      <li>
-                        <Link to={"/" + category.tag}>{category.tag}</Link>
-                      </li>
-                    );
-                  })}
+                  <li>
+                    <Link to="/">All</Link>
+                  </li>
+                  {categories
+                    .filter(
+                      (category) =>
+                        category.tag !== "Photography" &&
+                        category.tag !== "Sports and Recreation" &&
+                        category.tag !== "Product" &&
+                        category.tag !== "Potrait" &&
+                        category.tag !== "Innovation" &&
+                        category.tag !== "Technology" &&
+                        category.tag !== "Shows" &&
+                        category.tag !== "Nature"
+                    )
+                    .map((category) => {
+                      return (
+                        <li>
+                          <Link to={"/" + category.tag}>{category.tag}</Link>
+                        </li>
+                      );
+                    })}
                 </Slider>
               </div>
             </>
@@ -379,13 +459,28 @@ const Navbar = () => {
 
               <div className="nav_list">
                 <Slider {...settings}>
-                  {categories.map((name) => {
-                    return (
-                      <li>
-                        <Link to={"photo/" + name.tag}>{name.tag}</Link>
-                      </li>
-                    );
-                  })}
+                  <li>
+                    <Link to="photo">All</Link>
+                  </li>
+                  {categories
+                    .filter(
+                      (category) =>
+                        category.tag !== "Innovation" &&
+                        category.tag !== "Music" &&
+                        category.tag !== "Mini Documentaries" &&
+                        category.tag !== "Sports and Recreation" &&
+                        category.tag !== "Photography" &&
+                        category.tag !== "Shows" &&
+                        category.tag !== "Short Film" &&
+                        category.tag !== "Educational"
+                    )
+                    .map((name) => {
+                      return (
+                        <li>
+                          <Link to={"photo/" + name.tag}>{name.tag}</Link>
+                        </li>
+                      );
+                    })}
                 </Slider>
               </div>
             </>
@@ -406,13 +501,27 @@ const Navbar = () => {
 
               <div className="nav_list">
                 <Slider {...settings}>
-                  {categories.map((name) => {
-                    return (
-                      <li>
-                        <Link to={"video/" + name.tag}>{name.tag}</Link>
-                      </li>
-                    );
-                  })}
+                  <li>
+                    <Link to="video">All</Link>
+                  </li>
+                  {categories
+                    .filter(
+                      (category) =>
+                        category.tag !== "Innovation" &&
+                        category.tag !== "Product" &&
+                        category.tag !== "Potrait" &&
+                        category.tag !== "Photography" &&
+                        category.tag !== "Technology" &&
+                        category.tag !== "Nature" &&
+                        category.tag !== "Sports and Recreation"
+                    )
+                    .map((name) => {
+                      return (
+                        <li>
+                          <Link to={"video/" + name.tag}>{name.tag}</Link>
+                        </li>
+                      );
+                    })}
                 </Slider>
               </div>
             </>
@@ -433,15 +542,30 @@ const Navbar = () => {
 
               <div className="nav_list">
                 <Slider {...settings}>
-                  {categories.map((name) => {
-                    return (
-                      <li>
-                        <Link to={"articles and blog/" + name.tag}>
-                          {name.tag}
-                        </Link>
-                      </li>
-                    );
-                  })}
+                  <li>
+                    <Link to="articles and blog">All</Link>
+                  </li>
+                  {categories
+                    .filter(
+                      (category) =>
+                        category.tag !== "Short Film" &&
+                        category.tag !== "Product" &&
+                        category.tag !== "Potrait" &&
+                        category.tag !== "Sports" &&
+                        category.tag !== "Technology" &&
+                        category.tag !== "Shows" &&
+                        category.tag !== "Mini Documentaries" &&
+                        category.tag !== "Nature"
+                    )
+                    .map((name) => {
+                      return (
+                        <li>
+                          <Link to={"articles and blog/" + name.tag}>
+                            {name.tag}
+                          </Link>
+                        </li>
+                      );
+                    })}
                 </Slider>
               </div>
             </>

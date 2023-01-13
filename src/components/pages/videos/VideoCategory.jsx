@@ -1,10 +1,12 @@
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import ContentBox from "../common/ContentBox";
+import { useLoadingContext } from "react-router-loading";
 
 const VideoCategory = () => {
+  const loadingContext = useLoadingContext()
   let { category } = useParams();
 
   const [sortedVideos, setSortedVideos] = useState([]);
@@ -17,11 +19,14 @@ const VideoCategory = () => {
   );
 
   useEffect(() => {
+    document.title = ("Video - "+category)
+    loadingContext.start()
     const getSortedVideos = async () => {
       const videoData = await getDocs(sortByCategory);
       setSortedVideos(
         videoData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      loadingContext.done()
     };
 
     getSortedVideos();
@@ -37,7 +42,7 @@ const VideoCategory = () => {
               return (
                 <>
                   <ContentBox
-                    link={post.title}
+                    link={post.id}
                     image={post.image}
                     category={post.category}
                     title={post.title}

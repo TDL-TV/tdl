@@ -1,9 +1,11 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
 import { db } from "../../firebase/firebaseConfig";
 import ContentBox from "../common/ContentBox";
 
 const Articles = () => {
+  const loadingContext = useLoadingContext()
   const [allArticles, setAllArticles] = useState([]);
 
   const articleCollectionRef = collection(db, "posts");
@@ -14,11 +16,14 @@ const Articles = () => {
   );
 
   useEffect(() => {
+    document.title = ("Articles and Blog")
+    loadingContext.start()
     const getAllArticles = async () => {
       const articleData = await getDocs(sortArticles);
       setAllArticles(
         articleData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      loadingContext.done()
     };
     getAllArticles();
   }, []);
@@ -31,7 +36,7 @@ const Articles = () => {
             return (
               <>
                 <ContentBox
-                  link={post.category + "/" + post.title}
+                  link={post.category + "/" + post.id}
                   image={post.image}
                   category={post.category}
                   title={post.title}

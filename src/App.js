@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-loading";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Articles from "./components/pages/articles/Articles";
@@ -16,6 +16,15 @@ import ArticleContent from "./components/pages/articles/ArticleContent";
 import ArticleCategory from "./components/pages/articles/ArticleCategory";
 import AllPosts from "./components/pages/common/AllPosts";
 import Search from "./components/navbar/Search";
+import { topbar } from 'react-router-loading'
+
+topbar.config({
+  barColors: {
+    0: 'rgb(0, 214, 214)',
+    .3: 'rgb(255, 2, 128)',
+    1.0: 'rgb(255, 0, 0)'
+},
+})
 
 function App() {
   return (
@@ -32,14 +41,14 @@ function App() {
 
           {/* Photos */}
           <Route path="/photo/:category" element={<PhotoCategory />} />
-          <Route path="/photo/:category/:title" element={<PhotoContent />} />
+          <Route path="/photo/:category/:id" element={<PhotoContent />} />
 
           {/* Videos */}
-          <Route path="/video/:category/:title" element={<VideoContent />} />
+          <Route path="/video/:category/:id" element={<VideoContent />} />
           <Route path="/video/:category" element={<VideoCategory/>} />
 
           {/* Articles */}
-          <Route path="/articles and blog/:category/:title" element={<ArticleContent />} />
+          <Route path="/articles and blog/:category/:id" element={<ArticleContent />} />
           <Route path="/articles and blog/:category" element={<ArticleCategory/>} />
 
           {/* Users */}

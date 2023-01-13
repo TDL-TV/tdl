@@ -4,9 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import { db } from "../../firebase/firebaseConfig";
 import "../../assets/css/Current.css";
 import parse from "html-react-parser";
+import { useLoadingContext } from "react-router-loading";
 
 const ArticleContent = () => {
-  let { title, category } = useParams();
+  const loadingContext = useLoadingContext()
+  let { id, category } = useParams();
 
   const [allPosts, setAllPosts] = useState([]);
 
@@ -15,9 +17,13 @@ const ArticleContent = () => {
   const sortPosts = query(postCollectionRef);
 
   useEffect(() => {
+
+    document.title = (category)
+    loadingContext.start()
     const getAllPosts = async () => {
       const postData = await getDocs(sortPosts);
       setAllPosts(postData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      loadingContext.done()
     };
 
     getAllPosts();
@@ -27,8 +33,9 @@ const ArticleContent = () => {
     <div className="current_box">
       {allPosts
         .filter((data) => data.type === "articles and blog")
-        .filter((data) => data.title === title)
+        .filter((data) => data.id === id)
         .map((post) => {
+          document.title = (post.username+" - "+post.title)
           return (
             <>
               <div className="content_div">
@@ -44,6 +51,7 @@ const ArticleContent = () => {
                       <p>{post.username}</p>
                     </Link>
                     <p>{post.date}</p>
+                    <p>{post.category}</p>
                   </div>
                   <h4>Description</h4>
                   <p className="post_description">{parse(post.description)}</p>
@@ -59,33 +67,32 @@ const ArticleContent = () => {
         <div className="related_box">
           {allPosts
             .filter((data) => data.category === category)
-            .filter((data) => data.title !== title)
+            .filter((data) => data.id !== id)
             .map((post) => {
               return (
                 <>
                   <Link
                     to={
-                      "/" + post.type + "/" + post.category + "/" + post.title
+                      "/" + post.type + "/" + post.category + "/" + post.id
                     }
                   >
-                    <div className="related_div">
+                   <div className="related_div">
                       <div className="related_img">
                         <img src={post.image} alt={post.title} />
                       </div>
                       <div className="related_description">
-                        <p>{post.category}</p>
                         <h4>{post.title}</h4>
+                        <i>{ post.username+" - "+post.type}</i>
                         <div className="date">
-                          <p>{post.username}</p>
                           <p>{post.date}</p>
                         </div>
-                        <i>{post.type}</i>
                       </div>
                     </div>
                   </Link>
                 </>
               );
             })}
+            
         </div>
       </div>
     </div>

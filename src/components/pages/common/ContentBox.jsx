@@ -12,7 +12,7 @@ const ContentBox = (props) => {
           <p>{props.category}</p>
           <div className="contentbox_title">
 
-          <h4>{props.title}</h4><p>...</p>
+          <h4>{props.title}</h4>
           </div>
 
           <div className="content_author">

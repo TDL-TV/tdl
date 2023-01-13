@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { db } from "../../firebase/firebaseConfig";
 import ContentBox from "../common/ContentBox";
 import { useParams } from "react-router-dom";
+import { useLoadingContext } from "react-router-loading";
 
 const Category = () => {
+  const loadingContext = useLoadingContext();
   const [allPhotos, setAllPhotos] = useState([]);
   const photosCollectionRef = collection(db, "posts");
 
@@ -16,11 +18,14 @@ const Category = () => {
   );
 
   useEffect(() => {
+    loadingContext.start();
+
     const getAllPhotos = async () => {
       const photoData = await getDocs(sortAllPhotos);
       setAllPhotos(
         photoData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      loadingContext.done();
     };
     getAllPhotos();
   }, []);
