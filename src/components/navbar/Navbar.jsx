@@ -9,6 +9,7 @@ import {
   RiCloseLine,
   RiSearch2Line,
   RiSearchLine,
+  RiFilter3Fill,
 } from "react-icons/ri";
 import Sidebar from "./Sidebar";
 import Themebtn from "./Themebtn";
@@ -146,6 +147,7 @@ const Navbar = () => {
 
   return (
     <>
+
       <div className="nav_container">
         {/* Home Content */}
 
@@ -314,6 +316,12 @@ const Navbar = () => {
           </Link>
         </div>
 
+
+        <label htmlFor="shownav">
+<div className="filters"> 
+  <RiFilter3Fill size={27}/> Filters
+</div>
+</label>
         <form
           className="search_form"
           onSubmit={() => {
@@ -395,7 +403,7 @@ const Navbar = () => {
             <></>
           )}
         </form>
-
+      
         <Themebtn size={35} />
 
         {/* <label htmlFor="show_nav" className="show_nav">
@@ -404,10 +412,19 @@ const Navbar = () => {
 
         {/* <input type="checkbox" id="show_nav" /> */}
 
-        {/* Right Navigation Menu */}
+        {/* Right Navigation Menu */} 
         <div className="right_nav">
+        <input type="checkbox" id="shownav"/>
+
+        <label htmlFor="shownav">
+
+        {/* <div className="filters2">
+         <RiFilter3Fill size={27}/> Filters
+        </div> */}
+        </label>
           {home ? (
             <>
+              
               <div className="active_link">
                 <li className="rightnav_links">
                   <Link to="/">Home</Link>
@@ -456,7 +473,7 @@ const Navbar = () => {
                   <Link to="/photo">Photos</Link>
                 </li>
               </div>
-
+       
               <div className="nav_list">
                 <Slider {...settings}>
                   <li>
@@ -575,7 +592,10 @@ const Navbar = () => {
             </li>
           )}
         </div>
+    
       </div>
+
+ 
     </>
   );
 };

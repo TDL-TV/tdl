@@ -14,6 +14,9 @@
   top: 0;
   z-index: 2;
   padding: 0 1%;
+  box-shadow: 1px 3px 5px 0px var(--box-shadow-color);
+  -webkit-box-shadow: 1px 3px 5px 0px var(--box-shadow-color);
+  -moz-box-shadow: 1px 3px 5px 0px var(--box-shadow-color);
 }
 
 .logo {
@@ -65,14 +68,16 @@
 
 .nav_list {
   position: absolute;
-  top: 70px;
+  top: -100px;
   left: 0;
   padding: 0 3%;
+  padding-right: 120px;
   background: var(--background-dull);
   width: 100%;
   box-shadow: 1px 3px 5px 0px var(--box-shadow-color);
   -webkit-box-shadow: 1px 3px 5px 0px var(--box-shadow-color);
   -moz-box-shadow: 1px 3px 5px 0px var(--box-shadow-color);
+  transition: 0.3s ease-in-out;
 }
 .nav_container input {
   width: 100%;
@@ -82,9 +87,7 @@
   background: var(--background-dull);
   color: var(--text-color);
 }
-
 .right_nav li a:hover {
-
   opacity: 0.8;
 }
 
@@ -107,7 +110,7 @@
 }
 
 .search_form button:hover {
- opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Slick settings */
@@ -133,6 +136,7 @@
 
 .right_nav {
   display: flex;
+  background: var(--background-dull);
 }
 
 /* Sidebar Css */
@@ -158,7 +162,7 @@
   width: 100%;
   border-radius: 4px;
   padding: 1% 5%;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .side_container li a:hover {
@@ -231,6 +235,38 @@
   z-index: 1;
 }
 
+.filters {
+  justify-content: right;
+  height: 45px;
+  display: flex;
+  padding: 0 20px;
+  right: 0;
+  /* background: var(--background-dull); */
+  top: 82px;
+  border-radius: 5px;
+  position: fixed;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.filters:hover {
+ /* background: rgba(119, 119, 119, 0.704); */
+
+}
+
+#shownav {
+  position: absolute;
+  color: red;
+  margin-top: 90px;
+  display: none;
+}
+
+input[type="checkbox" i]:checked ~ .nav_list {
+  top: 80px;
+}
+
+
 @media screen and (max-width: 768px) {
   .show_nav {
     display: unset;
@@ -267,7 +303,6 @@
     top: 49px;
   }
 }
-
 
 @media screen and (max-width: 453px) {
   .suggestion_box {
