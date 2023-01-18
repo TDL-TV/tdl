@@ -89,7 +89,7 @@
 .featured_container .slick-next::before,
 .featured_container .slick-prev::before {
   font-size: 27px;
-  color: cyan;
+  color:  #94e000;
 }
 
 .featured-p {
@@ -236,6 +236,11 @@
   }
   .homecontent_container {
     margin: 0;
+  }
+  
+  .home_container {
+    margin-top: 85px;
+
   }
   .home-content_container {
     column-count: 1;

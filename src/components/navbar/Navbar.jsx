@@ -13,7 +13,7 @@ import {
 } from "react-icons/ri";
 import Sidebar from "./Sidebar";
 import Themebtn from "./Themebtn";
-import Tdllogo from "../assets/images/tdllogo.png";
+import Tdllogo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
