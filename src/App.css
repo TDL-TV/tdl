@@ -67,6 +67,6 @@ body.dark {
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  box-shadow: inset 2px 2px 2px rgba(0, 191, 255, 0.25),
-    inset -2px -2px 2px rgba(153, 189, 255, 0.25);
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.521),
+    inset -2px -2px 2px rgba(255, 255, 255, 0.533);
 }
