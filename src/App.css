@@ -44,7 +44,7 @@ body.dark {
 }
 
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 
 *::-webkit-scrollbar-track {
@@ -59,14 +59,11 @@ body.dark {
 }
 
 *::-webkit-scrollbar-thumb {
-  box-shadow: inset 2px 2px 2px var(--text-color),
-    inset -2px -2px 2px var(--text-color);
   border-radius: 20px;
   background: var(--text-color);
   /* border: 3px solid orange; */
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.521),
-    inset -2px -2px 2px rgba(255, 255, 255, 0.533);
+  background: var(--titles);
 }
