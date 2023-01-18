@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 .theme_icon svg {
-  color: var(--text-color);
+  color: var(--titles);
   font-size: 20px;
 }
 .theme_icon button {
