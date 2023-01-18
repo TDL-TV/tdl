@@ -25,12 +25,12 @@ body {
 
 body.light {
   --background-color: var(--white);
-  --text-color: rgb(28, 28, 28);
+  --text-color:rgb(99, 99, 99);
   --box-shadow-color: rgba(0, 0, 0, 0.379);
   --background-dull: var(--light2);
   --color1: var(--light);
   --background-2: rgb(246 246 246);
-  --titles: black;
+  --titles: rgb(0, 0, 0);
 }
 
 body.dark {

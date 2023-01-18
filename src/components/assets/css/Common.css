@@ -39,6 +39,9 @@
 .result_description p {
   padding-top: 3px;
 }
+.result_description h4 {
+  color: var(--titles);
+}
 
 .user_result h4{
   background: #80808081;
